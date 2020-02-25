@@ -232,22 +232,42 @@ $programmingLanguages = array(
 
 <style>
 body{
+    background-color: blue;
+    text-align: center;
+
 	
 }
+
+h1,h2{
+    color: white
+}
+
+input{
+    background-color: red
+}
+#footer{
+    background-color: pink
+}
+
 </style>
 
 <h1> My Favorite Programming Languages </h1>
 
-<h2> By: Your Name - Date Test was Taken</h2>
+<h2> By: Devin Mallett - February 24, 2020</h2>
 <br />
 <?php
 // Display the time of the page loading 
 // Format: date (Month/Day/Year) and time (Hour:Minutes:Seconds)
 // Disable modifying the text box after loading
+date_default_timezone_set("America/New_York");
 $dateTime = "Current Date and Time";
 
-echo '<h3>Current Date and Time:</h3>';
-echo '<input type="text" value="'.$dateTime.'" >';
+echo '<h3>Current Date and Time:</h3>' . "<br>";
+echo "The current date is " . date("Y.m.d") . " and the current time is " . date("h:i:sa") . "<br>";
+echo "Current Date:" . date("Y.m.d") . "<br>";
+echo "Current Time:  " . date("h:i:sa") . "<br>" ;
+
+echo '<input type="text" disabled value="'.$dateTime.'" >';
 ?>
 
 <br />
@@ -261,13 +281,20 @@ echo '<input type="text" value="'.$dateTime.'" >';
 <select>
 
 <?php
-	echo '<option value="Enter Option Data">Enter Option Data</option>';					
+foreach($programmingLanguages as $item){
+    ?>
+     <option value="<?php echo strtolower($item); ?>"><?php echo $item; ?></option>
+     <?php					
+}
+
 ?>						
 							
 </select>
+
+
 
 <br />
 <br />
 <br />
 <br />
-<p>&#169; 2019 World Shipping, Inc.</p>
+<p id=footer>&#169; 2019 World Shipping, Inc.</p>
